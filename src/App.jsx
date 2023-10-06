@@ -1,14 +1,13 @@
 
 import './App.css'
-// import Home from './pages/Home/Home'
+import NavBar from './components/NavBar/NavBar'
 import MainRouting from './routings/MainRouting'
 
 function App() {
 
   return (
     <>
-      <h1>Harray Movies</h1>
-      {/* <Home /> */}
+      <NavBar />
       <MainRouting />
     </>
   )

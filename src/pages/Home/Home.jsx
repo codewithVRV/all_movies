@@ -1,7 +1,9 @@
+
 function Home () {
     return (
         <>
-            <h1>New Movie Page</h1>
+            <h1>This is Home Page</h1>
+            
         </>
     )
 }

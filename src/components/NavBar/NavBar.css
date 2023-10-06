@@ -1,0 +1,16 @@
+
+#movie-title {
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    letter-spacing: .5px;
+}
+
+.search-bar {
+    width: 50rem;
+}
+
+.theme-icon {
+    font-size: 1.8rem;
+    padding-left: 4rem;
+    cursor: pointer;
+}
