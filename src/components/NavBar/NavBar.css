@@ -16,3 +16,24 @@
     padding-left: 4rem;
     cursor: pointer;
 }
+
+#form-parent {
+    position: relative;
+}
+
+.result-list-parent {
+    position: absolute;
+    display: none;
+    background-color: var(--white-one);
+    margin-top: 3rem;
+    width: 88%;
+    margin-left: 4px;
+    z-index: 10;
+}
+
+.result-list-parent p {
+    letter-spacing: 1px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+}
