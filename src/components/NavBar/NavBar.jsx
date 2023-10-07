@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import './NavBar.css'
 import useMovieList from '../../hooks/useMovieList';
+import useDebounce from '../../hooks/useDebounce';
 
 function NavBar () {
 
     const [lightMode, setLigthMode] = useState(false)
     const [isAutoCompleteVisible, setAutoCompleteVisible] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
-    const [MovieList] = useMovieList(!searchTerm ? "harry" : searchTerm)
-    console.log("movieList is", searchTerm, MovieList)
+    const [MovieList] = useMovieList(searchTerm)
+    
+    // console.log("movieList is", searchTerm, MovieList)
     return (
         <>
 
@@ -29,7 +31,7 @@ function NavBar () {
                             onBlur={() => {
                                 setAutoCompleteVisible(false)
                             }}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={useDebounce((e) => setSearchTerm(e.target.value))}
                         aria-label="Search"/>
                         {(lightMode) ? 
                         <i className="bi bi-moon-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> 
