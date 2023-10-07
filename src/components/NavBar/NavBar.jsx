@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './NavBar.css'
 import useMovieList from '../../hooks/useMovieList';
 import useDebounce from '../../hooks/useDebounce';
-import { searchMovieById } from '../../apis/omdb';
+import { Link, useNavigate } from 'react-router-dom';
 
 function NavBar () {
 
@@ -10,17 +10,17 @@ function NavBar () {
     const [isAutoCompleteVisible, setAutoCompleteVisible] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [MovieList] = useMovieList(searchTerm)
+    const navigator = useNavigate()
     
     async function handleAutoClicked (movieId) {
-        const response  = await searchMovieById(movieId)
-        console.log("response of a movie is", response)
+        navigator(`movie/${movieId}`)
     }
     return (
         <>
 
             <nav className="navbar navbar-expand-lg bg-body-tertiary  parent">
                 <div className="container">
-                    <a className="navbar-brand" href="#" id='movie-title'>Movie Hub</a>
+                    <Link to={'/'} className="navbar-brand"  id='movie-title'>Movie Hub</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
