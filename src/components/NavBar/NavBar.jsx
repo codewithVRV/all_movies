@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './NavBar.css'
 import useMovieList from '../../hooks/useMovieList';
 import useDebounce from '../../hooks/useDebounce';
+import { searchMovieById } from '../../apis/omdb';
 
 function NavBar () {
 
@@ -10,7 +11,10 @@ function NavBar () {
     const [searchTerm, setSearchTerm] = useState("")
     const [MovieList] = useMovieList(searchTerm)
     
-    // console.log("movieList is", searchTerm, MovieList)
+    async function handleAutoClicked (movieId) {
+        const response  = await searchMovieById(movieId)
+        console.log("response of a movie is", response)
+    }
     return (
         <>
 
@@ -29,6 +33,7 @@ function NavBar () {
                                 setAutoCompleteVisible(true)
                             }}
                             onBlur={() => {
+                                console.log()
                                 setAutoCompleteVisible(false)
                             }}
                             onChange={useDebounce((e) => setSearchTerm(e.target.value))}
@@ -37,11 +42,10 @@ function NavBar () {
                         <i className="bi bi-moon-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> 
                          :
                         <i className="bi bi-sun-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> }
+
                         <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
-                            {MovieList.length > 0 && MovieList.map((movie) => <p key={movie.omdbId}>{movie.Title}</p>)}
-                                {/* <p>Result 1</p>
-                                <p>Result 1</p>
-                                <p>Result 1</p> */}
+                            {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}>{movie.Title}</p>)}
+                                
                         </div>
                     </form>
                     </div>
