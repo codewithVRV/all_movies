@@ -1,8 +1,6 @@
 import './MovieCard.css'
 
 function MovieCard ({Title, Year, Poster}) {
-    // const newTitle = Title.text.substr(1, 12)
-    // console.log("newTitle is", newTitle)
     return (
             <>
 

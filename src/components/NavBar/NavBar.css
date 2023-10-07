@@ -1,4 +1,6 @@
-
+.parent {
+    margin-bottom: 3rem;
+}
 #movie-title {
     font-size: 1.8rem;
     font-family: sans-serif;

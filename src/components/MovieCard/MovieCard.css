@@ -1,11 +1,11 @@
 .movie-card {
     height: 400px;
     width: 271px;
-    border: 10px solid rgba(0, 0, 0, .8);
+    border: 10px solid var(--black-one);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    margin-top: 2rem;
+    margin-bottom: 3rem;
     padding: 20px;
 }
 
@@ -21,7 +21,7 @@
 .card-title {
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--black-two);
     top: 0;
     right: -100%;
     position: absolute;
@@ -32,7 +32,7 @@
 .card-title span {
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: var(--white-one);
     display: flex;
 }
 
