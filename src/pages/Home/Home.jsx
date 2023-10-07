@@ -1,27 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import useMovieList from "../../hooks/useMovieList";
 import '../Home/Home.css'
-import { searchMovie } from "../../apis/omdb";
 
 function Home () {
 
-    const [MovieList, setMovieList] = useState([]);
-
-    
-
-    async function downloadDefaultMovies (...args) {
-        const urls = args.map((name) => searchMovie(name))
-        const response = await axios.all((urls.map(url => axios.get(url))))
-        const movies = response.map((movieResponse) => movieResponse.data.Search)
-        setMovieList([].concat(...movies))
-    }
+    const [MovieList] = useMovieList( "batman", "harry", "avengers", "superman")
 
 
-
-    useEffect(() => {
-        downloadDefaultMovies("harry", "batman", "avengers", "superman")
-    }, [])
     return (
         <>
             {/* NavBar */}
