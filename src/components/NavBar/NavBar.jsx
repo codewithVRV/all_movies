@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import './NavBar.css'
 
 function NavBar () {
 
     const [lightMode, setLigthMode] = useState(false)
-    const resultRef = useRef(null)
+    const [isAutoCompleteVisible, setAutoCompleteVisible] = useState(false)
 
     return (
         <>
@@ -21,17 +21,17 @@ function NavBar () {
                         <input className="form-control me-2 search-bar" 
                         type="search" id='input-search-bar' placeholder="Search" 
                         onFocus={() => {
-                            resultRef.current.style.display = "block"
+                            setAutoCompleteVisible(true)
                         }}
                         onBlur={() => {
-                            resultRef.current.style.display = "none"
+                            setAutoCompleteVisible(false)
                         }}
                         aria-label="Search"/>
                         {(lightMode) ? 
                         <i className="bi bi-moon-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> 
                          :
                         <i className="bi bi-sun-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> }
-                        <div className='result-list-parent' ref={resultRef}>
+                        <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
                                 <p>Result 1</p>
                                 <p>Result 1</p>
                                 <p>Result 1</p>
