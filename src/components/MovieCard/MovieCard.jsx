@@ -1,13 +1,18 @@
 import './MovieCard.css'
 
-function MovieCard ({Title, Year,}) {
+function MovieCard ({Title, Year, Poster}) {
+    // const newTitle = Title.text.substr(1, 12)
+    // console.log("newTitle is", newTitle)
     return (
             <>
 
             <div className="movie-card">
-                <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" alt="" />
-                <span>{Title}:-</span>
-                <span>{Year}</span>
+                <img src={Poster} alt="" />
+                <div className='card-title'>
+                    <span id='movie-name'>{Title}</span>
+                    <span id='movie-year'>Release In : {Year}</span>
+                </div>
+                
             </div>
             </>        
     )

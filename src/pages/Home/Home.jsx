@@ -1,43 +1,36 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import '../Home/Home.css'
+import { searchMovie } from "../../apis/omdb";
 
 function Home () {
 
-    const movie = {
-        Title :"The Avengers favourite movie",
-        Year : 2025,
-        imdbId: 23,
-        Type: 'movie',
-        Poster:	"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" 
-    }
+    const [movies, setMovies] = useState([]);
 
-    async function downloadMovies() {
-        const response = await axios.get('http://www.omdbapi.com/?s=avengers&apikey=b14d10e5', {
-            headers: {
-                apikey : import.meta.env.VITE_APP_ID,
-            }
-        })
-        console.log("response of movie is", response)
+    
+
+    async function downloadDefaultMovies (movieName) {
+        const response = await axios.get(searchMovie(movieName))
+        setMovies([...response.data.Search])
     }
 
 
 
     useEffect(() => {
-        downloadMovies()
-    })
+        downloadDefaultMovies("harry")
+    }, [])
     return (
         <>
-            <h5>This is Home Page</h5>
             {/* NavBar */}
             {/* MovieList */}
             {/* pagination button */}
-            <div className="movie-card-parent">
-            <MovieCard 
-                {...movie}
-                />
             
+            <div className="movie-card-parent">
+           
+            {movies.map((movie) => 
+                <MovieCard  key={movie.omdbId} Title={movie.Title} Year={movie.Year} Poster={movie.Poster}/>
+            )}
             </div>
             
         </>
