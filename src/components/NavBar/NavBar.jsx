@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './NavBar.css'
+import useMovieList from '../../hooks/useMovieList';
 
 function NavBar () {
 
     const [lightMode, setLigthMode] = useState(false)
     const [isAutoCompleteVisible, setAutoCompleteVisible] = useState(false)
-
+    const [searchTerm, setSearchTerm] = useState("")
+    const [MovieList] = useMovieList(!searchTerm ? "harry" : searchTerm)
+    console.log("movieList is", searchTerm, MovieList)
     return (
         <>
 
@@ -19,23 +22,24 @@ function NavBar () {
                     
                     <form className="d-flex" role="search" id='form-parent'>
                         <input className="form-control me-2 search-bar" 
-                        type="search" id='input-search-bar' placeholder="Search" 
-                        onFocus={() => {
-                            setAutoCompleteVisible(true)
-                        }}
-                        onBlur={() => {
-                            setAutoCompleteVisible(false)
-                        }}
+                            type="search" id='input-search-bar' placeholder="Search" 
+                            onFocus={() => {
+                                setAutoCompleteVisible(true)
+                            }}
+                            onBlur={() => {
+                                setAutoCompleteVisible(false)
+                            }}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         aria-label="Search"/>
                         {(lightMode) ? 
                         <i className="bi bi-moon-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> 
                          :
                         <i className="bi bi-sun-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> }
                         <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
+                            {MovieList.length > 0 && MovieList.map((movie) => <p key={movie.omdbId}>{movie.Title}</p>)}
+                                {/* <p>Result 1</p>
                                 <p>Result 1</p>
-                                <p>Result 1</p>
-                                <p>Result 1</p>
-                                <p>Result 1</p>
+                                <p>Result 1</p> */}
                         </div>
                     </form>
                     </div>

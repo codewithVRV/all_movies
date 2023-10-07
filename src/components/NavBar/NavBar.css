@@ -29,6 +29,11 @@
     width: 88%;
     margin-left: 4px;
     z-index: 10;
+    height: 300px;
+    overflow-y: scroll;
+}
+.result-list-parent::-webkit-scrollbar {
+    display: none;
 }
 
 .result-list-parent p {
