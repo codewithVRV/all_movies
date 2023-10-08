@@ -1,17 +1,17 @@
+import { Link } from 'react-router-dom';
 import './MovieCard.css'
 
-function MovieCard ({Title, Year, Poster}) {
+function MovieCard ({ Poster, id}) {
     return (
             <>
-
+            <Link to={`movie/${id}`}>
             <div className="movie-card">
                 <img src={Poster} alt="" />
                 <div className='card-title'>
-                    <span id='movie-name'>{Title}</span>
-                    <span id='movie-year'>Release In : {Year}</span>
                 </div>
                 
             </div>
+            </Link>
             </>        
     )
 }

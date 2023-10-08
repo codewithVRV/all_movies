@@ -1,8 +1,35 @@
 :root {
+    
+
+    /* dark mode */
+
+    --black: #ffff;
+    --black-one: rgba(255, 255, 255, .8);
+    --black-two: rgba(255, 255, 255, .5);
+    --black-three: #ffff;
+    --white-one: #0000;
+    --brown: #BD2A2E;
+    --nav-bg-color: #ffff;
+    --body-color: rgb(0, 0, 0)
+
+}
+
+[data-theme-mode='light'] {
+
+    /* light mode */
+
+
     --black: #0000;
     --black-one: rgba(0, 0, 0, .8);
     --black-two: rgba(0, 0, 0, 0.5);
+    --black-three: rgb(0, 0, 0);
     --white-one: #fff;
     --brown: #BD2A2E;
+    --nav-bg-color: grey;
+    --nav-title: #ffff;
+    --body-color: rgb(245, 245, 245)
+}
 
+#theme-wrapper {
+    background-color: var(--body-color);
 }

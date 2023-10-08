@@ -1,20 +1,24 @@
 .parent {
     margin-bottom: 3rem;
+    background-color: var(--nav-bg-color) !important;
 }
 #movie-title {
     font-size: 1.8rem;
     font-family: sans-serif;
     letter-spacing: .5px;
+    color: var(--nav-title);
 }
 
 .search-bar {
     width: 50rem;
 }
 
+
 .theme-icon {
     font-size: 1.8rem;
     padding-left: 4rem;
     cursor: pointer;
+    color: var(--nav-title);
 }
 
 #form-parent {
@@ -24,7 +28,7 @@
 .result-list-parent {
     position: absolute;
     display: none;
-    background-color: var(--white-one);
+    background-color: var(--nav-bg-color);
     margin-top: 3rem;
     width: 88%;
     margin-left: 4px;
@@ -43,4 +47,5 @@
     margin-left: 10px;
     margin-top: 10px;
     font-size: 20px;
+    color: var(--nav-title);
 }

@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './NavBar.css'
 import useMovieList from '../../hooks/useMovieList';
 import useDebounce from '../../hooks/useDebounce';
 import { Link, useNavigate } from 'react-router-dom';
+import ThemeContext from '../context/ThemeContext';
 
 function NavBar () {
 
-    const [lightMode, setLigthMode] = useState(false)
+    // const [lightMode, setLigthMode] = useState(false)
     const [isAutoCompleteVisible, setAutoCompleteVisible] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [MovieList] = useMovieList(searchTerm)
     const navigator = useNavigate()
+
+    const {theme, setTheme} = useContext(ThemeContext)
     
     async function handleAutoClicked (movieId) {
         navigator(`movie/${movieId}`)
@@ -38,11 +41,15 @@ function NavBar () {
                             }}
                             onChange={useDebounce((e) => setSearchTerm(e.target.value))}
                         aria-label="Search"/>
-                        {(lightMode) ? 
-                        <i className="bi bi-moon-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> 
+                        {/* {(!theme === 'dark') ? 
+                        <i className="bi bi-moon-fill theme-icon" onClick={() => setTheme((theme === 'light') ? 'dark': 'light')}></i> 
                          :
-                        <i className="bi bi-sun-fill theme-icon" onClick={() => setLigthMode(!lightMode)}></i> }
+                        <i className="bi bi-sun-fill theme-icon" onClick={() => setTheme((theme === 'dark') ? 'light': 'dark')}></i> } */}
+                        <div onClick={() => setTheme((theme === 'dark') ? 'light' : 'dark')}>
 
+                            {(theme === 'dark') ?  <i className="bi bi-moon-fill theme-icon" ></i>  : <i className="bi bi-sun-fill theme-icon" ></i> }
+
+                        </div>
                         <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
                             {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}>{movie.Title}</p>)}
                                 
