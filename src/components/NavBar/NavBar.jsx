@@ -15,8 +15,8 @@ function NavBar () {
 
     const {theme, setTheme} = useContext(ThemeContext)
     
-    async function handleAutoClicked (movieId) {
-        navigator(`movie/${movieId}`)
+    async function handleAutoClicked (id) {
+        navigator(`movie/${id}`)
     }
 
     function updateTheme () {
@@ -52,10 +52,7 @@ function NavBar () {
                             }}
                             onChange={useDebounce((e) => setSearchTerm(e.target.value))}
                         aria-label="Search"/>
-                        {/* {(!theme === 'dark') ? 
-                        <i className="bi bi-moon-fill theme-icon" onClick={() => setTheme((theme === 'light') ? 'dark': 'light')}></i> 
-                         :
-                        <i className="bi bi-sun-fill theme-icon" onClick={() => setTheme((theme === 'dark') ? 'light': 'dark')}></i> } */}
+                        
                         <div onClick={() => setTheme(updateTheme)}>
 
                             {(theme === 'dark') ?  <i className="bi bi-moon-fill theme-icon" ></i>  : <i className="bi bi-sun-fill theme-icon" ></i> }
