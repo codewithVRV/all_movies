@@ -18,6 +18,17 @@ function NavBar () {
     async function handleAutoClicked (movieId) {
         navigator(`movie/${movieId}`)
     }
+
+    function updateTheme () {
+        if(theme == 'dark'){
+            setTheme('light');
+            localStorage.setItem('app-theme', 'light')
+        }
+        else{
+            setTheme('dark');
+            localStorage.setItem('app-theme', 'dark')
+        }
+    }
     return (
         <>
 
@@ -45,7 +56,7 @@ function NavBar () {
                         <i className="bi bi-moon-fill theme-icon" onClick={() => setTheme((theme === 'light') ? 'dark': 'light')}></i> 
                          :
                         <i className="bi bi-sun-fill theme-icon" onClick={() => setTheme((theme === 'dark') ? 'light': 'dark')}></i> } */}
-                        <div onClick={() => setTheme((theme === 'dark') ? 'light' : 'dark')}>
+                        <div onClick={() => setTheme(updateTheme)}>
 
                             {(theme === 'dark') ?  <i className="bi bi-moon-fill theme-icon" ></i>  : <i className="bi bi-sun-fill theme-icon" ></i> }
 
