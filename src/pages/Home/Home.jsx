@@ -14,9 +14,13 @@ function Home () {
             <div className="movie-card-parent">
            
                 {MovieList.length > 0 && MovieList.map((movie) => 
-                    <MovieCard  key={movie.imdbID} Title={movie.Title}
-                                id={movie.imdbID}
-                            Year={movie.Year} Poster={movie.Poster}/>
+                    
+                    <MovieCard      
+                        key={movie.imdbID} 
+                        id={movie.imdbID}
+                        Poster={movie.Poster}
+                    />
+                    
                 )}
                 
             </div>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './MovieCard.css'
 
 function MovieCard ({ Poster, id}) {
+    console.log("id is", id)
     return (
             <>
             <Link to={`movie/${id}`}>

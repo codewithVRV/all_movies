@@ -1,28 +1,36 @@
-.parent {
+
+
+
+
+
+/* new NavBar */
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--nav-bg-color);
+    padding: 20px 15px;
     margin-bottom: 3rem;
-    background-color: var(--nav-bg-color) !important;
 }
-#movie-title {
+
+.movie-title {
     font-size: 1.8rem;
     font-family: sans-serif;
     letter-spacing: .5px;
     color: var(--nav-title);
 }
 
-.search-bar {
-    width: 50rem;
-}
-
-
-.theme-icon {
-    font-size: 1.8rem;
-    padding-left: 4rem;
-    cursor: pointer;
-    color: var(--nav-title);
-}
-
-#form-parent {
+.search-bar-two {
     position: relative;
+}
+
+.search-bar-two input {
+    width: 50rem;
+    height: 2.7rem;
+    border-radius: 5px;
+}
+.search-bar-two input::placeholder{
+    padding-left: 10px;
 }
 
 .result-list-parent {
@@ -48,4 +56,100 @@
     margin-top: 10px;
     font-size: 20px;
     color: var(--nav-title);
+}
+
+
+.theme-icon {
+    font-size: 1.8rem;
+    padding-left: 4rem;
+    cursor: pointer;
+    color: var(--nav-title);
+}
+
+
+/* .parent {
+    margin-bottom: 3rem;
+    background-color: var(--nav-bg-color) !important;
+} */
+
+/* #movie-title {
+    font-size: 1.8rem;
+    font-family: sans-serif;
+    letter-spacing: .5px;
+    color: var(--nav-title);
+} */
+
+/* .search-bar {
+    width: 50rem;
+} */
+
+
+
+/* #form-parent {
+    position: relative;
+} */
+
+@media  (max-width: 576px) {
+    .nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+    .search-bar-two input {
+        width: 20rem;
+        height: 2.3rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .movie-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    .theme-icon {
+        margin-left: 17.5rem;
+    }
+}
+
+@media (min-width: 577px) and (max-width:768px){
+    .nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+    .search-bar-two input {
+        width: 26rem;
+        height: 2.3rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .movie-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    .theme-icon {
+        margin-left: 26rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .nav-wrapper{
+        display: flex;
+        gap: 2rem;
+
+    }
+    .search-bar-two input {
+        width: 30rem;
+    }
+}
+
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .nav-wrapper{
+        display: flex;
+        gap: 2.5rem;
+
+    }
+    .search-bar-two input {
+        width: 33rem;
+    }
 }

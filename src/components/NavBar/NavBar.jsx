@@ -32,12 +32,10 @@ function NavBar () {
     return (
         <>
 
-            <nav className="navbar navbar-expand-lg bg-body-tertiary  parent">
+            {/* <nav className="navbar navbar-expand-lg bg-body-tertiary  parent">
                 <div className="container">
                     <Link to={'/'} className="navbar-brand"  id='movie-title'>Movie Hub</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
+                   
                     <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     
                     <form className="d-flex" role="search" id='form-parent'>
@@ -59,13 +57,48 @@ function NavBar () {
 
                         </div>
                         <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
-                            {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}>{movie.Title}</p>)}
+                            {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}> {movie.Title}</p>)}
                                 
                         </div>
                     </form>
                     </div>
                 </div>
-            </nav>
+            </nav> */}
+
+            <div className="nav-wrapper">
+                
+                <Link to={'/'} className="navbar-brand movie-title" >Movie Hub</Link>
+
+                <div className="search-bar-two">
+                    <input type="text" placeholder='Search Here'
+                        onFocus={() => {
+                            setAutoCompleteVisible(true)
+                        }}
+                        onBlur={() => {
+                            console.log()
+                            setAutoCompleteVisible(false)
+                        }}
+                        onChange={useDebounce((e) => setSearchTerm(e.target.value))}
+                    />
+                    <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
+                        {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}> {movie.Title}</p>)}
+                            <p>Hello vishnu</p>
+                            <p>Hello vishnu</p>
+                            <p>Hello vishnu</p>
+                    </div>
+                </div>
+
+                <div onClick={() => setTheme(updateTheme)}>
+
+                    {(theme === 'dark') ?  <i className="bi bi-moon-fill theme-icon" ></i>  : <i className="bi bi-sun-fill theme-icon" ></i> }
+
+                </div>
+
+                
+
+            </div>
+
+
 
 
 
