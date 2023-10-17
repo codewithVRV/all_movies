@@ -32,38 +32,7 @@ function NavBar () {
     return (
         <>
 
-            {/* <nav className="navbar navbar-expand-lg bg-body-tertiary  parent">
-                <div className="container">
-                    <Link to={'/'} className="navbar-brand"  id='movie-title'>Movie Hub</Link>
-                   
-                    <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-                    
-                    <form className="d-flex" role="search" id='form-parent'>
-                        <input className="form-control me-2 search-bar" 
-                            type="search" id='input-search-bar' placeholder="Search" 
-                            onFocus={() => {
-                                setAutoCompleteVisible(true)
-                            }}
-                            onBlur={() => {
-                                console.log()
-                                setAutoCompleteVisible(false)
-                            }}
-                            onChange={useDebounce((e) => setSearchTerm(e.target.value))}
-                        aria-label="Search"/>
-                        
-                        <div onClick={() => setTheme(updateTheme)}>
-
-                            {(theme === 'dark') ?  <i className="bi bi-moon-fill theme-icon" ></i>  : <i className="bi bi-sun-fill theme-icon" ></i> }
-
-                        </div>
-                        <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
-                            {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}> {movie.Title}</p>)}
-                                
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </nav> */}
+            
 
             <div className="nav-wrapper">
                 
@@ -82,9 +51,7 @@ function NavBar () {
                     />
                     <div className='result-list-parent' style={{display: (isAutoCompleteVisible) ? "block": "none"}}>
                         {MovieList.length > 0 && MovieList.map((movie) => <p onMouseDown={() => handleAutoClicked(movie.imdbID)} key={movie.imdbID}> {movie.Title}</p>)}
-                            <p>Hello vishnu</p>
-                            <p>Hello vishnu</p>
-                            <p>Hello vishnu</p>
+                            
                     </div>
                 </div>
 

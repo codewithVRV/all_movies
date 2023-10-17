@@ -27,3 +27,28 @@
     font-size: 1.7rem !important;
     font-weight: normal !important;
 }
+
+
+@media (max-width: 576px) {
+    .single-movie-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    #movie-img-wrapper img {
+        margin-left: 5rem;
+    }
+    .right-side-details span {
+        color: var(--brown);
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .right-color {
+        font-size: 1rem !important;
+    }
+
+    .right-side-details h3 {
+        font-size: 1.5rem;
+        text-align: left;
+        width: 15rem;
+    }
+}

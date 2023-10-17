@@ -22,7 +22,7 @@ function MovieDetails () {
 
             {movie && 
                 <div className="single-movie-wrapper">
-                    <div>
+                    <div id="movie-img-wrapper">
                         <img src={movie.Poster} alt="" />
                     </div>
                     <div className="right-side-details">
